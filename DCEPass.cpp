@@ -1,58 +1,3 @@
-// #include "llvm/IR/PassManager.h"
-// #include "llvm/IR/Function.h"
-// #include "llvm/IR/Instruction.h"
-// #include "llvm/Passes/PassBuilder.h"
-// #include "llvm/Passes/PassPlugin.h"
-
-// using namespace llvm;
-
-// // Step 1: Define the pass
-// struct DCEPass : public PassInfoMixin<DCEPass> {
-
-//     // This function runs on each function in IR
-//     PreservedAnalyses run(Function &F, FunctionAnalysisManager &) {
-//         errs() << "DCE running on function: " << F.getName() << "\n";
-
-//         for (auto &BB : F) {   // Loop over basic blocks
-
-//             for (auto it = BB.begin(); it != BB.end(); ) {
-
-//                 Instruction &I = *it++;   // Move iterator safely
-
-//                 // Step 2: Check if instruction is dead
-//                 if (I.use_empty() && !I.isTerminator() && !I.mayHaveSideEffects()) {
-//                     I.eraseFromParent();   // Delete instruction
-//                 }
-//             }
-//         }
-
-//         return PreservedAnalyses::none();
-//     }
-// };
-
-// // Step 3: Register the pass with LLVM
-// extern "C" LLVM_ATTRIBUTE_WEAK PassPluginLibraryInfo llvmGetPassPluginInfo() {
-//     return {
-//         LLVM_PLUGIN_API_VERSION,   // LLVM version compatibility
-//         "DCEPass",                 // Plugin name
-//         LLVM_VERSION_STRING,
-
-//         [](PassBuilder &PB) {
-//             PB.registerPipelineParsingCallback(
-//                 [](StringRef Name, FunctionPassManager &FPM,
-//                    ArrayRef<PassBuilder::PipelineElement>) {
-
-//                     if (Name == "dce-pass") {
-//                         FPM.addPass(DCEPass());   // Add our pass
-//                         return true;
-//                     }
-//                     return false;
-//                 });
-//         }
-//     };
-// }
-
-
 #include "llvm/IR/PassManager.h"
 #include "llvm/IR/Function.h"
 #include "llvm/IR/Instructions.h"
@@ -145,3 +90,60 @@ extern "C" LLVM_ATTRIBUTE_WEAK PassPluginLibraryInfo llvmGetPassPluginInfo() {
         }
     };
 }
+
+
+
+// #include "llvm/IR/PassManager.h"
+// #include "llvm/IR/Function.h"
+// #include "llvm/IR/Instruction.h"
+// #include "llvm/Passes/PassBuilder.h"
+// #include "llvm/Passes/PassPlugin.h"
+
+// using namespace llvm;
+
+// // Step 1: Define the pass
+// struct DCEPass : public PassInfoMixin<DCEPass> {
+
+//     // This function runs on each function in IR
+//     PreservedAnalyses run(Function &F, FunctionAnalysisManager &) {
+//         errs() << "DCE running on function: " << F.getName() << "\n";
+
+//         for (auto &BB : F) {   // Loop over basic blocks
+
+//             for (auto it = BB.begin(); it != BB.end(); ) {
+
+//                 Instruction &I = *it++;   // Move iterator safely
+
+//                 // Step 2: Check if instruction is dead
+//                 if (I.use_empty() && !I.isTerminator() && !I.mayHaveSideEffects()) {
+//                     I.eraseFromParent();   // Delete instruction
+//                 }
+//             }
+//         }
+
+//         return PreservedAnalyses::none();
+//     }
+// };
+
+// // Step 3: Register the pass with LLVM
+// extern "C" LLVM_ATTRIBUTE_WEAK PassPluginLibraryInfo llvmGetPassPluginInfo() {
+//     return {
+//         LLVM_PLUGIN_API_VERSION,   // LLVM version compatibility
+//         "DCEPass",                 // Plugin name
+//         LLVM_VERSION_STRING,
+
+//         [](PassBuilder &PB) {
+//             PB.registerPipelineParsingCallback(
+//                 [](StringRef Name, FunctionPassManager &FPM,
+//                    ArrayRef<PassBuilder::PipelineElement>) {
+
+//                     if (Name == "dce-pass") {
+//                         FPM.addPass(DCEPass());   // Add our pass
+//                         return true;
+//                     }
+//                     return false;
+//                 });
+//         }
+//     };
+// }
+
