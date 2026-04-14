@@ -19,7 +19,7 @@ struct DCEPass : public PassInfoMixin<DCEPass> {
                 Instruction &I = *it++;   // Move iterator safely
 
                 // Step 2: Check if instruction is dead
-                if (!I.use_empty() && !I.isTerminator() && !I.mayHaveSideEffects()) {
+                if (I.use_empty() && !I.isTerminator() && !I.mayHaveSideEffects()) {
                     I.eraseFromParent();   // Delete instruction
                 }
             }
