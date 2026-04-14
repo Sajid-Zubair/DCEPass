@@ -4,10 +4,11 @@
             "name": "Mac",
             "includePath": [
                 "/opt/homebrew/Cellar/llvm/22.1.0/include",
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "/opt/homebrew/opt/llvm@15/include"
             ],
             "defines": [],
-            "compilerPath": "/opt/homebrew/opt/llvm/bin/clang",
+            "compilerPath": "/opt/homebrew/opt/llvm@15/bin/clang++",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "macos-clang-arm64"

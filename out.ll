@@ -5,8 +5,6 @@ target triple = "arm64-apple-macosx16.0.0"
 
 ; Function Attrs: mustprogress noinline norecurse nounwind ssp uwtable
 define noundef i32 @main() #0 {
-  %1 = alloca i32, align 4
-  %2 = alloca i32, align 4
   ret i32 0
 }
 
@@ -20,5 +18,3 @@ attributes #0 = { mustprogress noinline norecurse nounwind ssp uwtable "frame-po
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 1}
 !4 = !{!"Homebrew clang version 15.0.7"}
-
-
