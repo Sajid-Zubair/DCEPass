@@ -1,0 +1,1 @@
+/opt/homebrew/opt/llvm@15/bin/clang++  -arch arm64 -dynamiclib -Wl,-headerpad_max_install_names -o libDCEPass.dylib -install_name @rpath/libDCEPass.dylib CMakeFiles/DCEPass.dir/DCEPass.cpp.o  -Wl,-rpath,/opt/homebrew/opt/llvm@15/lib /opt/homebrew/opt/llvm@15/lib/libLLVM.dylib

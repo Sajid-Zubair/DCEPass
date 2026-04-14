@@ -1,0 +1,6 @@
+/Users/sajidzubair/Documents/DCEPass/build/CMakeFiles/intrinsics_gen.dir
+/Users/sajidzubair/Documents/DCEPass/build/CMakeFiles/omp_gen.dir
+/Users/sajidzubair/Documents/DCEPass/build/CMakeFiles/acc_gen.dir
+/Users/sajidzubair/Documents/DCEPass/build/CMakeFiles/DCEPass.dir
+/Users/sajidzubair/Documents/DCEPass/build/CMakeFiles/edit_cache.dir
+/Users/sajidzubair/Documents/DCEPass/build/CMakeFiles/rebuild_cache.dir
